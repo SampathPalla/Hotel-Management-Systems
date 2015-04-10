@@ -1,0 +1,152 @@
+html{
+	background: rgba(15, 19, 32, 0.99);
+	background-image : -webkit-radial-gradient(-10% 50%, circle, #1B2E41, rgba(255, 255, 255, 0)), -webkit-radial-gradient(50% 50%, circle, rgba(255, 255, 255, 0.63), #57646E), -webkit-radial-gradient(110% 50%, circle, #2B3846, rgba(255, 255, 255, 0));
+
+}
+body{
+	font-family: 'PT Sans', sans-serif;
+	background : none;
+}
+section{
+	margin : 30px 0;
+
+}
+iframe{
+	 width: 400px;
+	 height: 400px;
+	 border: 0;
+}
+
+/* Image Slider  */
+
+#banner {
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+#slider {
+	position: relative;
+	width: 850px;
+	margin: 0 auto;
+}
+
+#slider .viewer {
+	width: 850px;
+	height: 300px;
+	overflow: hidden;
+	margin: 0 auto;
+	border-radius: 8px;
+}
+
+#slider .viewer .reel {
+	display: none;
+	height: 375px;
+}
+
+#slider .viewer .reel .slide {
+	position: relative;
+	width: 850px;
+	height: 300px;
+}
+.slide img{
+	height : 300px;
+	width : 850px;
+}
+
+
+
+/* Gallery  */
+
+#carousel img {
+	
+	display: block;
+	float: left;
+	border: none;
+	position: relative;
+}
+
+
+#home{
+	max-width: 950px;
+	padding : 50px;
+	box-shadow: 0 0 10px #fff;
+}
+
+.under-construction {
+	height : 200px;
+}
+
+.tab-content{
+	background : #FFF;
+	padding : 20px;
+	border-radius: 2px;
+	box-shadow: 0 0 10px #FFF;
+}
+
+.tab-pane h6 {
+	font-size : 1.1em;
+	font-weight: 700;
+	color: #32434D;
+	text-transform: uppercase;
+}
+
+.nav-tabs{
+	border-radius: 4px 4px 0 0;
+	box-shadow: 0 0 10px #FFF;
+}
+
+.navbar-inverse .navbar-brand{
+	color:#fff;
+}
+ul.nav-tabs.nav-justified>li{
+	display: table-cell;
+	width: 1%;
+}
+
+.footer-note{
+	color:#fff;
+	text-align: center;
+	padding:10px;
+}
+
+.footer-note a{
+	color: #fff;
+}
+
+#tab-seating .container {
+    padding-left: 4px;
+    padding-right: 4px;
+    width: auto;
+}
+#tab-seating .seats {
+    width: 120px;
+    height: 120px;
+    background: #88959C;
+    margin: 10px auto;
+    padding-top: 20px;
+}
+#tab-seating .seats p {
+    color: white;
+    margin: 4px auto;
+    width: 100px;
+    text-align: center;
+}
+#tab-seating .seats p .btn-link {
+    color: white;
+}
+
+
+ @media (max-width: 1024px){
+#slider{
+	display : none;
+}
+#tab-menu{
+	display:none;
+}
+ #tab-reservation span.btn-text {
+        display: none;
+    }
+     ul.nav-tabs a span.tab-text {
+        display: none;
+    }
+}

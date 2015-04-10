@@ -1,0 +1,33 @@
+
+
+/* Banner */
+
+#banner {
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+#slider {
+	position: relative;
+	width: 940px;
+	margin: 0 auto;
+}
+
+#slider .viewer {
+	width: 940px;
+	height: 300px;
+	overflow: hidden;
+	margin: 0 auto;
+	border-radius: 8px;
+}
+
+#slider .viewer .reel {
+	display: none;
+	height: 375px;
+}
+
+#slider .viewer .reel .slide {
+	position: relative;
+	width: 940px;
+	height: 300px;
+}
