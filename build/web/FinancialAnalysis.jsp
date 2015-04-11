@@ -4,6 +4,12 @@
     Author     : SampathYadav
 --%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.SQLException"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -69,7 +75,43 @@
                 var ChartTypeSelected = ChartType.options[ChartType.selectedIndex].text;
                 var yearlyYear = document.getElementById('YearlyYearSelect');
                 var yearlyYearSelected = yearlyYear.options[yearlyYear.selectedIndex].text;
-                alert(yearlyYearSelected);
+               
+               //Getting the data from Database
+                <% String yearSelected = request.getParameter("YearlyYearSelect"); 
+                    if (yearSelected != null) { 
+                        runQuery(yearSelected); %> 
+                <% }  %>
+                    <%-- Declare and define the runQuery() method. --%>
+                <%! private void runQuery(String yearSelected) throws SQLException {
+                     Connection conn = null; 
+                     Statement stmt = null; 
+                     ResultSet rset = null; 
+                     ArrayList<String> arrayList = new ArrayList<String>(); 
+                     try {
+                        DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+                        conn = DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
+                        stmt = conn.createStatement();
+                        // dynamic query
+                        int numberOfColumns = 2;                        
+                        rset = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '01-JAN-"+ yearSelected +"' and '31-DEC-"+ yearSelected +"' GROUP BY Loaction" );
+                        while (rset.next()) {              
+                            int i = 1;
+                            while(i <= numberOfColumns) {
+                                arrayList.add(rset.getString(i++));
+                            }
+                        }
+                        //request.getParameter("lblDataSet") = arrayList;
+                     }
+                    catch (SQLException e) { 
+                         //return ("<P> SQL error: <PRE> " + e + " </PRE> </P>\n");
+                    } 
+                    finally {
+                         if (rset!= null) rset.close(); 
+                         if (stmt!= null) stmt.close();
+                         if (conn!= null) conn.close();
+                     }
+                }
+                %>
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Name');
                 data.addColumn('number', 'Salary');
