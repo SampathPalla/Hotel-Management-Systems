@@ -22,7 +22,7 @@
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type="text/javascript">
             google.load('visualization', '1.0', {'packages':['corechart']});
-            google.setOnLoadCallback(drawChart);
+            //google.setOnLoadCallback(drawChart);
 
             // Callback that creates and populates a data table,
             // instantiates the pie chart, passes in the data and
@@ -31,9 +31,13 @@
                 // Create the data table.
                 var ChartType = document.getElementById('selRepresentationType');
                 var ChartTypeSelected = ChartType.options[ChartType.selectedIndex].text;
+                var month = document.getElementById('monthlyMonthSelect');
+                var monthSelected = month.options[month.selectedIndex].value;
+                var monthlyYear = document.getElementById('monthlyYearSelect');
+                var monthlyYearSelected = monthlyYear.options[monthlyYear.selectedIndex].text;
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Topping');
-                data.addColumn('number', 'Slices');
+                data.addColumn('string', 'Hotel Location');
+                data.addColumn('number', 'Income');
                 data.addRows([
                   ['Mushrooms', 3],
                   ['Onions', 1],
@@ -63,6 +67,8 @@
                 // Create the data table.
                 var ChartType = document.getElementById('selYearlyRepresentationType');
                 var ChartTypeSelected = ChartType.options[ChartType.selectedIndex].text;
+                var yearlyYear = document.getElementById('YearlyYearSelect');
+                var yearlyYearSelected = yearlyYear.options[yearlyYear.selectedIndex].text;
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Name');
                 data.addColumn('number', 'Salary');
@@ -92,6 +98,19 @@
                 }
                 chart.draw(data, options); 
             }
+            function pageLoad()
+            {
+                monthlyYearSelect = document.getElementById('monthlyYearSelect');
+                yearlyYearSelect = document.getElementById('YearlyYearSelect');
+                monthlyYearSelect.options[monthlyYearSelect.options.length] = new Option('2013', '2013');
+                monthlyYearSelect.options[monthlyYearSelect.options.length] = new Option('2014', '2014');
+                monthlyYearSelect.options[monthlyYearSelect.options.length] = new Option('2015', '2015');
+                yearlyYearSelect.options[yearlyYearSelect.options.length] = new Option('2013', '2013');
+                yearlyYearSelect.options[yearlyYearSelect.options.length] = new Option('2014', '2014');
+                yearlyYearSelect.options[yearlyYearSelect.options.length] = new Option('2015', '2015');
+                drawChart();
+            }
+            window.onload=pageLoad;
         </script>
     </head>
     <body>
@@ -116,24 +135,21 @@
                                     <tr>
                                         <td style="width: 50%">
                                             <label>Select Month: </label>
-                                            <select>
-                                                <option value="Month">January</option>
-                                                <option value="Month">February</option>
-                                                <option value="Month">March</option>
-                                                <option value="Month">April</option>
-                                                <option value="Month">May</option>
-                                                <option value="Month">June</option>
-                                                <option value="Month">July</option>
-                                                <option value="Month">August</option>
-                                                <option value="Month">September</option>
-                                                <option value="Month">October</option>
-                                                <option value="Month">November</option>
-                                                <option value="Month">December</option>
+                                            <select id="monthlyMonthSelect" onchange="drawChart()">
+                                                <option value="Jan">January</option>
+                                                <option value="Feb">February</option>
+                                                <option value="Mar">March</option>
+                                                <option value="Apr">April</option>
+                                                <option value="May">May</option>
+                                                <option value="Jun">June</option>
+                                                <option value="Jul">July</option>
+                                                <option value="Aug">August</option>
+                                                <option value="Sep">September</option>
+                                                <option value="Oct">October</option>
+                                                <option value="Nov">November</option>
+                                                <option value="Dec">December</option>
                                             </select>
-                                            <select>
-                                                <option value="2013">2013</option>
-                                                <option value="2014">2014</option>
-                                                <option value="2015">2015</option>
+                                            <select id="monthlyYearSelect" onchange="drawChart()">
                                             </select>
                                         </td>
                                         <td style="float:right">
@@ -158,15 +174,12 @@
                                     <tr>
                                         <td style="width: 50%">
                                             <label>Select Year: </label>
-                                            <select>
-                                                <option value="2013">2013</option>
-                                                <option value="2014">2014</option>
-                                                <option value="2015">2015</option>
+                                            <select id="YearlyYearSelect" onchange="drawChartforYearly()">
                                             </select>
                                         </td>
                                         <td style="float:right">
                                             <label>Represent Data As: </label>
-                                            <select id="selYearlyRepresentationType" style="float:right" onchange="drawChartforYearly()">
+                                            <select id="selYearlyRepresentationType" onload="CreateValues()" style="float:right" onchange="drawChartforYearly()">
                                                 <option value="valPie">Pie-Chart</option>
                                                 <option value="valBar">Bar-Graph</option>
                                                 <option value="valArea">Area-Chart</option>
