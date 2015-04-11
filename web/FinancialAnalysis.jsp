@@ -74,7 +74,9 @@
                   ]);
                 // Set chart options
                 var options = {'width':500,
-                               'height':500};
+                               'height':500,
+                               'left':(screen.width/2)
+                              };
                 var chart = null;
                 if(ChartTypeSelected === "Pie-Chart")
                 {
@@ -110,7 +112,7 @@
                     <div class="tab-pane active" id="tab-MonthlyAnalysis">
                         <div class="container">
                             <div class="col-xs-12 col-sm-11">
-                                <table>
+                                <table style="width:100%">
                                     <tr>
                                         <td style="width: 50%">
                                             <label>Select Month: </label>
@@ -152,7 +154,7 @@
                     <div class="tab-pane" id="tab-YearlyAnalysis">
                         <div class="container">
                             <div class="col-xs-12 col-sm-11">
-                                <table>
+                                <table style="width:100%">
                                     <tr>
                                         <td style="width: 50%">
                                             <label>Select Year: </label>
