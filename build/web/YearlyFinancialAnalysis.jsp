@@ -93,7 +93,6 @@
                 document.getElementById('YearlyYearSelect').value = "<%=yearSelected%>";
                 if("<%=ChartTypeSelected%>"=== null)
                 {
-                    alert( "<%=ChartTypeSelected%>");
                     document.getElementById('selYearlyRepresentationType').value = "valPie";
                 }
                 drawChartforYearly();
