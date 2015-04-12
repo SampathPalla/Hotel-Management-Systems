@@ -78,20 +78,24 @@
                 var yearlyYearSelected = yearlyYear.options[yearlyYear.selectedIndex].text;
                 document.getElementById("lblyear").value = yearlyYearSelected;
                 document.getElementById("lblyear").style.display = 'none';
-                alert(document.getElementById("lblyear").value);
                 <%
-                    
-                    String yearSelected = request.getParameter("lblyear");
-                    //yearSelected = yearlyYearSelected;
+                    String yearSelected = request.getParameter("selYearlyRepresentationType");
                     Connection conn = null; 
-                    Statement stmt = null; 
-                    ResultSet rset = null; 
+                    Statement stmt = null;
+                    ResultSet dataBasedOnSelection = null; 
                     DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
                     conn = DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
                     stmt = conn.createStatement();
+                    if(yearSelected == null)
+                    {
+                        //getYear = stmt2.executeQuery ("select Max(Extract Year from StartDate) from reservation");
+                        yearSelected = "2015";
+                    }
+                    //yearSelected = yearlyYearSelected;
+                    
                     // dynamic query
                     //int numberOfColumns = 2;                        
-                    rset = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '01-JAN-2006' and '31-DEC-2006' GROUP BY Location" );
+                    dataBasedOnSelection = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '01-JAN-2006' and '31-DEC-2006' GROUP BY Location" );
                     //out.println("Sorry Something Went Wrong");
                     //ResultSet resultset = rset;
                 %>
@@ -101,8 +105,8 @@
                 data.addColumn('number', 'Revenue');
                 alert("<%=yearSelected%>");
                 //var Locations[] = null;
-                <%  while(rset.next()){ %>
-                    data.addRow(["<%= rset.getString(1)%>",<%= rset.getString(2)%>]);
+                <%  while(dataBasedOnSelection.next()){ %>
+                    data.addRow(["<%= dataBasedOnSelection.getString(1)%>",<%= dataBasedOnSelection.getString(2)%>]);
                 <% } %>
                 
                 /*data.addRows([
@@ -209,6 +213,8 @@
                                                 <option value="valBar">Bar-Graph</option>
                                                 <option value="valArea">Area-Chart</option>
                                             </select>
+                                            <br>
+                                            <input type="Submit" id="btnGenerate" value="Generate Statistics" onclick="drawChart()">
                                         </td>
                                     </tr>
                                 </table>
@@ -223,17 +229,22 @@
                                 <table style="width:100%">
                                     <tr>
                                         <td style="width: 50%">
-                                            <label>Select Year: </label>
-                                            <select id="YearlyYearSelect" onchange="drawChartforYearly()">
-                                            </select>
+                                            <form action="post">
+                                                <label>Select Year: </label>
+                                                <select id="YearlyYearSelect" name="YearlyYearSelect" onchange="drawChartforYearly()">
+                                                </select>
+                                                <input action="post" type="hidden" name="lblyear" id="lblyear"/>
+                                            </form>
                                         </td>
                                         <td style="float:right">
                                             <label>Represent Data As: </label>
-                                            <select id="selYearlyRepresentationType" onload="CreateValues()" style="float:right" onchange="drawChartforYearly()">
+                                            <select id="selYearlyRepresentationType" style="float:right">
                                                 <option value="valPie">Pie-Chart</option>
                                                 <option value="valBar">Bar-Graph</option>
                                                 <option value="valArea">Area-Chart</option>
                                             </select>
+                                            <br>
+                                            <input type="Submit" id="btnGenerateYearly" value="Generate Statistics" onclick="drawChartforYearly()">
                                         </td>
                                     </tr>
                                 </table>
@@ -243,9 +254,6 @@
                     </div>
             </div>
         </div>
-        <form action="TesterServlet">
-            <input type="hidden" name="depart" id="lblyear"/>
-        </form>
         <script type="text/javascript" src="scripts/lib/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="jquery.slidertron-1.0.js"></script>
