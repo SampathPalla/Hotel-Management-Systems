@@ -4,12 +4,13 @@
     Author     : SampathYadav
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -75,52 +76,42 @@
                 var ChartTypeSelected = ChartType.options[ChartType.selectedIndex].text;
                 var yearlyYear = document.getElementById('YearlyYearSelect');
                 var yearlyYearSelected = yearlyYear.options[yearlyYear.selectedIndex].text;
-               
-               //Getting the data from Database
-                <% String yearSelected = request.getParameter("YearlyYearSelect"); 
-                    if (yearSelected != null) { 
-                        runQuery(yearSelected); %> 
-                <% }  %>
-                    <%-- Declare and define the runQuery() method. --%>
-                <%! private void runQuery(String yearSelected) throws SQLException {
-                     Connection conn = null; 
-                     Statement stmt = null; 
-                     ResultSet rset = null; 
-                     ArrayList<String> arrayList = new ArrayList<String>(); 
-                     try {
-                        DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-                        conn = DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
-                        stmt = conn.createStatement();
-                        // dynamic query
-                        int numberOfColumns = 2;                        
-                        rset = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '01-JAN-"+ yearSelected +"' and '31-DEC-"+ yearSelected +"' GROUP BY Loaction" );
-                        while (rset.next()) {              
-                            int i = 1;
-                            while(i <= numberOfColumns) {
-                                arrayList.add(rset.getString(i++));
-                            }
-                        }
-                        //request.getParameter("lblDataSet") = arrayList;
-                     }
-                    catch (SQLException e) { 
-                         //return ("<P> SQL error: <PRE> " + e + " </PRE> </P>\n");
-                    } 
-                    finally {
-                         if (rset!= null) rset.close(); 
-                         if (stmt!= null) stmt.close();
-                         if (conn!= null) conn.close();
-                     }
-                }
+                document.getElementById("lblyear").value = yearlyYearSelected;
+                document.getElementById("lblyear").style.display = 'none';
+                alert(document.getElementById("lblyear").value);
+                <%
+                    
+                    String yearSelected = request.getParameter("lblyear");
+                    //yearSelected = yearlyYearSelected;
+                    Connection conn = null; 
+                    Statement stmt = null; 
+                    ResultSet rset = null; 
+                    DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+                    conn = DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
+                    stmt = conn.createStatement();
+                    // dynamic query
+                    //int numberOfColumns = 2;                        
+                    rset = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '01-JAN-2006' and '31-DEC-2006' GROUP BY Location" );
+                    //out.println("Sorry Something Went Wrong");
+                    //ResultSet resultset = rset;
                 %>
+                
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Name');
-                data.addColumn('number', 'Salary');
-                data.addRows([
+                data.addColumn('string', 'Location');
+                data.addColumn('number', 'Revenue');
+                alert("<%=yearSelected%>");
+                //var Locations[] = null;
+                <%  while(rset.next()){ %>
+                    data.addRow(["<%= rset.getString(1)%>",<%= rset.getString(2)%>]);
+                <% } %>
+                
+                /*data.addRows([
                     ['Mike',  {v: 10000, f: '$10,000'}],
                     ['Jim',   {v:8000,   f: '$8,000'}],
                     ['Alice', {v: 12500, f: '$12,500'}],
                     ['Bob',   {v: 7000,  f: '$7,000'}]
                   ]);
+                */
                 // Set chart options
                 var options = {'width':500,
                                'height':500,
@@ -145,12 +136,28 @@
             {
                 monthlyYearSelect = document.getElementById('monthlyYearSelect');
                 yearlyYearSelect = document.getElementById('YearlyYearSelect');
-                monthlyYearSelect.options[monthlyYearSelect.options.length] = new Option('2013', '2013');
-                monthlyYearSelect.options[monthlyYearSelect.options.length] = new Option('2014', '2014');
-                monthlyYearSelect.options[monthlyYearSelect.options.length] = new Option('2015', '2015');
-                yearlyYearSelect.options[yearlyYearSelect.options.length] = new Option('2013', '2013');
-                yearlyYearSelect.options[yearlyYearSelect.options.length] = new Option('2014', '2014');
-                yearlyYearSelect.options[yearlyYearSelect.options.length] = new Option('2015', '2015');
+                <%
+                    
+                    //String yearSelected = request.getAttribute("YearlyYearSelect").toString();
+                    //Connection conn = null; 
+                    Statement stmt1 = null; 
+                    ResultSet rset1 = null; 
+                    //DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+                    //conn = DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
+                    stmt1 = conn.createStatement();
+                    // dynamic query
+                    //int numberOfColumns = 2;                        
+                    rset1 = stmt1.executeQuery ("select distinct Extract(Year from StartDate) AS Year from Reservation");
+                    //out.println("Sorry Something Went Wrong");
+                    //ResultSet resultset = rset;
+                %>
+                //var Locations[] = null;
+                <%  while(rset1.next()){ %>
+                    monthlyYearSelect.options[monthlyYearSelect.options.length] = new Option('<%= rset1.getString(1)%>','<%= rset1.getString(1)%>');
+                    yearlyYearSelect.options[yearlyYearSelect.options.length] =new Option('<%= rset1.getString(1)%>','<%= rset1.getString(1)%>');
+                
+                <% } %>
+                
                 drawChart();
             }
             window.onload=pageLoad;
@@ -236,6 +243,9 @@
                     </div>
             </div>
         </div>
+        <form action="TesterServlet">
+            <input type="hidden" name="depart" id="lblyear"/>
+        </form>
         <script type="text/javascript" src="scripts/lib/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="jquery.slidertron-1.0.js"></script>
