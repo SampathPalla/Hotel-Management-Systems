@@ -77,9 +77,9 @@
                 var yearlyYear = document.getElementById('YearlyYearSelect');
                 var yearlyYearSelected = yearlyYear.options[yearlyYear.selectedIndex].text;
                 document.getElementById("lblyear").value = yearlyYearSelected;
-                document.getElementById("lblyear").style.display = 'none';
+                //alert(document.getElementById("lblyear").value);
                 <%
-                    String yearSelected = request.getParameter("selYearlyRepresentationType");
+                    String yearSelected = request.getParameter("lblyear");
                     Connection conn = null; 
                     Statement stmt = null;
                     ResultSet dataBasedOnSelection = null; 
@@ -229,12 +229,11 @@
                                 <table style="width:100%">
                                     <tr>
                                         <td style="width: 50%">
-                                            <form action="post">
                                                 <label>Select Year: </label>
                                                 <select id="YearlyYearSelect" name="YearlyYearSelect" onchange="drawChartforYearly()">
                                                 </select>
-                                                <input action="post" type="hidden" name="lblyear" id="lblyear"/>
-                                            </form>
+                                                <input type="hidden" name="lblyear" id="lblyear"/>
+
                                         </td>
                                         <td style="float:right">
                                             <label>Represent Data As: </label>
@@ -244,7 +243,7 @@
                                                 <option value="valArea">Area-Chart</option>
                                             </select>
                                             <br>
-                                            <input type="Submit" id="btnGenerateYearly" value="Generate Statistics" onclick="drawChartforYearly()">
+                                            <input type="submit" value="Generate Statistics" id="btnGenerateYearly" Name="btnGenerateYearly" onclick="drawChartforYearly()">
                                         </td>
                                     </tr>
                                 </table>

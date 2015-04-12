@@ -82,11 +82,11 @@
                         <h6>Location Wise Reservation Status</h6>
                         <div class="container">
                             <div class="col-xs-12 col-sm-11">
-                                <a href='#' onclick='javascript:window.open("/DBMSWeb/FinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefFinancialAnalysis'>> Financial Analysis</a>
+                                <a href='#' onclick='javascript:window.open("YearlyFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefFinancialAnalysis'>> Financial Analysis</a>
                                 <br>
-                                <a href='#' onclick='javascript:window.open("/DBMSWeb/OccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefHotelOccupancyAnalysis'>> Hotel Occupancy Trend Analysis</a>
+                                <a href='#' onclick='javascript:window.open("OccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefHotelOccupancyAnalysis'>> Hotel Occupancy Trend Analysis</a>
                                 <br>
-                                <a href='#' onclick='javascript:window.open("/DBMSWeb/RoomOccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefRoomOccupancyAnalysis'>> Room Occupancy Trend Analysis</a>
+                                <a href='#' onclick='javascript:window.open("RoomOccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefRoomOccupancyAnalysis'>> Room Occupancy Trend Analysis</a>
                                 <br>
                             </div>
 
