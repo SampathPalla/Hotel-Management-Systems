@@ -70,16 +70,10 @@
                             <span class="tab-text">Feedback Analysis</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#tab-Amenities" data-toggle="tab"><span class="glyphicon glyphicon-th-large"></span>
-                            <span class="tab-text">Amenities</span>
-                        </a>
-                    </li>
-
                 </ul>
                 <div id="content" class="tab-content">
                     <div class="tab-pane active" id="tab-financialAnalysis">
-                        <h6>Location Wise Reservation Status</h6>
+                        <h6>Financial Analysis</h6>
                         <div class="container">
                             <div class="col-xs-12 col-sm-11">
                                 <h6>Annual Financial Analysis</h6>
@@ -105,6 +99,25 @@
                     </div>
                     <div class="tab-pane" id="tab-GuestAnalysis">
                         <h6>Guest Analysis</h6>
+                        <div class="container">
+                            <div class="col-xs-12 col-sm-11">
+                                <h6>Analysis Based on Nationality</h6>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("DomesticGuestOccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefDomesticGuests'>> Domestic Guests</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("ForeignGuestOccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefForeignGuests'>> Foreign Guests</a>
+                                <br>
+                                <h6>Analysis Based on Type of Booking</h6>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("PersonalBookingAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefPersonalBooking'>> Personal</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("OrganizationalBookingAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefOrganizational'>> Organizational</a>
+                                <br>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="tab-pane" id="tab-LoyaltyProgram">
                         <h6>Loyalty Program</h6>
@@ -112,12 +125,6 @@
                     <div class="tab-pane" id="tab-FeedbackAnalysis">
                         <h6>Feedback Analysis</h6>
                     </div>
-                    <div class="tab-pane" id="tab-Amenities">
-                        <h6>Amenities</h6>
-                    </div>
-
-
-
                 </div>
             </div>
 

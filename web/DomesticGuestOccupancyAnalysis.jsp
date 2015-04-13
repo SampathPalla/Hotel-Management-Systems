@@ -1,6 +1,6 @@
 <%-- 
-    Document   : OccupancyAnalysis
-    Created on : Apr 10, 2015, 11:07:38 PM
+    Document   : RoomOccupancyAnalysis
+    Created on : Apr 10, 2015, 11:07:49 PM
     Author     : SampathYadav
 --%>
 
@@ -19,7 +19,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Seasonal Financial Analysis</title>
+        <title>Domestic Guest Analysis</title>
         <link rel="shortcut icon" type="image/x-icon" href="images/cutlery.ico">
         <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="styles/lib/bootstrap-theme.css">
@@ -49,7 +49,7 @@
                     {
                         yearSelected = "2015";
                     }
-                    dataBasedOnSelection = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '1-JAN-"+yearSelected+"' and '30-APR-"+yearSelected+"' group by location");
+                    dataBasedOnSelection = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '1-AUG-"+yearSelected+"' and '31-DEC-"+yearSelected+"' group by location");
                     
                 %>
                 var data = new google.visualization.DataTable();
@@ -60,7 +60,8 @@
                     data.addRow(["<%= dataBasedOnSelection.getString(1)%>",<%= dataBasedOnSelection.getString(2)%>]);
                 <% } %>
                 // Set chart options
-                var options = {'width':500,
+                var options = {'title': "Domestic Guest Statistics for the year " + "<%=yearSelected%>",
+                               'width':500,
                                'height':500};
                 var chart = null;
                 if(ChartTypeSelected === "Pie-Chart")
@@ -103,9 +104,9 @@
     <body>
         <div class="container" id="ownerHome">
             <ul class="nav nav-tabs nav-justified" id="tabAnalysis">
-                <li class="active" id="liMonthly">
-                    <a href="#tab-MonthlyAnalysis" data-toggle="tab" onclick="drawChart()"><span class="glyphicon glyphicon-calendar"></span>   
-                        <span>Monthly</span>
+                <li class="active" id="liDomesticGuest">
+                    <a href="#tab-DomesticGuestAnalysis" data-toggle="tab" onclick="drawChart()"><span class="glyphicon glyphicon-calendar"></span>   
+                        <span>Domestic Guest</span>
                     </a>
                 </li>
             </ul>
@@ -117,6 +118,7 @@
                                     <table style="width:100%">
                                         <tr>
                                             <td style="width: 50%">
+                                                <label>Select Year: </label>
                                                 <select id="seasonalYearSelect" name="seasonalYearSelect">
                                                 </select>
                                                 <input type="hidden" name="lblyear" id="lblyear"/>
