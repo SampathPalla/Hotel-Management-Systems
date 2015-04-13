@@ -51,8 +51,8 @@
             <div class="container" id="ownerHome">
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active">
-                        <a href="#tab-status" data-toggle="tab"><span class="glyphicon glyphicon-calendar"></span>   
-                            <span class="tab-text">Occupancy Analysis</span>
+                        <a href="#tab-financialAnalysis" data-toggle="tab"><span class="glyphicon glyphicon-calendar"></span>   
+                            <span class="tab-text">Financial Analysis</span>
                         </a>
                     </li>
                     <li>
@@ -78,17 +78,26 @@
 
                 </ul>
                 <div id="content" class="tab-content">
-                    <div class="tab-pane active" id="tab-status">
+                    <div class="tab-pane active" id="tab-financialAnalysis">
                         <h6>Location Wise Reservation Status</h6>
                         <div class="container">
                             <div class="col-xs-12 col-sm-11">
-                                <a href='#' onclick='javascript:window.open("YearlyFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefYearlyFinancialAnalysis'>> Yearly Financial Analysis</a>
+                                <h6>Annual Financial Analysis</h6>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("YearlyFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefYearlyFinancialAnalysis'>> Yearly</a>
                                 <br>
-                                <a href='#' onclick='javascript:window.open("MonthlyFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefMonthlyFinancialAnalysis'>> Monthly Financial Analysis</a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("MonthlyFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefMonthlyFinancialAnalysis'>> Monthly</a>
                                 <br>
-                                <a href='#' onclick='javascript:window.open("OccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefHotelOccupancyAnalysis'>> Hotel Occupancy Trend Analysis</a>
+                                <h6>Seasonal Financial Analysis</h6>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("SpringFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefSpringFinancialAnalysis'>> Spring</a>
                                 <br>
-                                <a href='#' onclick='javascript:window.open("RoomOccupancyAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefRoomOccupancyAnalysis'>> Room Occupancy Trend Analysis</a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("SummerFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefSpringSummerAnalysis'>> Summer</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("FallFinancialAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefSpringFallAnalysis'>> Fall</a>
                                 <br>
                             </div>
 
