@@ -60,7 +60,8 @@
                     data.addRow(["<%= dataBasedOnSelection.getString(1)%>",<%= dataBasedOnSelection.getString(2)%>]);
                 <% } %>
                 // Set chart options
-                var options = {'width':500,
+                var options = {'title': "Spring Statistics for the year " + "<%=yearSelected%>",
+                               'width':500,
                                'height':500};
                 var chart = null;
                 if(ChartTypeSelected === "Pie-Chart")
@@ -103,9 +104,9 @@
     <body>
         <div class="container" id="ownerHome">
             <ul class="nav nav-tabs nav-justified" id="tabAnalysis">
-                <li class="active" id="liMonthly">
-                    <a href="#tab-MonthlyAnalysis" data-toggle="tab" onclick="drawChart()"><span class="glyphicon glyphicon-calendar"></span>   
-                        <span>Monthly</span>
+                <li class="active" id="liSpring">
+                    <a href="#tab-SpringAnalysis" data-toggle="tab" onclick="drawChart()"><span class="glyphicon glyphicon-calendar"></span>   
+                        <span>Spring</span>
                     </a>
                 </li>
             </ul>

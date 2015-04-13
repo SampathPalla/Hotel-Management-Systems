@@ -61,7 +61,8 @@
                     data.addRow(["<%= dataBasedOnSelection.getString(1)%>",<%= dataBasedOnSelection.getString(2)%>]);
                 <% } %>
                 // Set chart options
-                var options = {'width':500,
+                var options = {'title':"Financial Analysis for the Year " + "<%=yearSelected%>",
+                               'width':500,
                                'height':500,
                                'left':(screen.width/2)
                               };

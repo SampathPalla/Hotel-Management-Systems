@@ -67,7 +67,8 @@
                     data.addRow(["<%= dataBasedOnSelection.getString(1)%>",<%= dataBasedOnSelection.getString(2)%>]);
                 <% } %>
                 // Set chart options
-                var options = {'width':500,
+                var options = {'title':"Monthly Financial Analysis for the month " + "<%=monthSelected%>" +", "+"<%=yearSelected%>",
+                               'width':500,
                                'height':500};
                 var chart = null;
                 if(ChartTypeSelected === "Pie-Chart")
