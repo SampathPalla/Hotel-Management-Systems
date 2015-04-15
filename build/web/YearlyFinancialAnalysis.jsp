@@ -73,11 +73,11 @@
                 }
                 else if(ChartTypeSelected === "Bar-Graph")
                 {
-                    var chart = new google.visualization.BarChart(document.getElementById("yearlychart_div"));
+                    chart = new google.visualization.BarChart(document.getElementById("yearlychart_div"));
                 }
                 else if(ChartTypeSelected === "Area-Chart")
                 {
-                    var chart = new google.visualization.AreaChart(document.getElementById("yearlychart_div"));
+                    chart = new google.visualization.AreaChart(document.getElementById("yearlychart_div"));
                 }
                 chart.draw(data, options); 
             }

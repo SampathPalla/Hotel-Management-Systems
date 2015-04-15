@@ -77,11 +77,11 @@
                 }
                 else if(ChartTypeSelected === "Bar-Graph")
                 {
-                    var chart = new google.visualization.BarChart(document.getElementById("chart_div"));
+                    chart = new google.visualization.BarChart(document.getElementById("chart_div"));
                 }
                 else if(ChartTypeSelected === "Area-Chart")
                 {
-                    var chart = new google.visualization.AreaChart(document.getElementById("chart_div"));
+                    chart = new google.visualization.AreaChart(document.getElementById("chart_div"));
                 }
                 chart.draw(data, options); 
             }
