@@ -124,6 +124,27 @@
                     </div>
                     <div class="tab-pane" id="tab-FeedbackAnalysis">
                         <h6>Feedback Analysis</h6>
+                        <div class="container">
+                            <div class="col-xs-12 col-sm-11">
+                                <h6>Analysis Based on Guest's Feedback</h6>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("OverallFeedbackAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefOverallFeedbackAnalysis'>> Overall Ratings</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("RoomServiceFeedbackAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefRoomServiceFeedbackAnalysis'>> Room Service Ratings</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("HouseKeepingFeedbackAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefHouseKeepingFeedbackAnalysis'>> Housekeeping Ratings</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("FrontDeskFeedbackAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefFrontDeskFeedbackAnalysis'>> Front Desk Ratings</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("AmenitiesFeedbackAnalysis.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefAmenitiesFeedbackAnalysis'>> Amenities Ratings</a>
+                                <br>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

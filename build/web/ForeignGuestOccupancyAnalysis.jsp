@@ -49,12 +49,12 @@
                     {
                         yearSelected = "2015";
                     }
-                    dataBasedOnSelection = stmt.executeQuery ("select r.location, sum(c.amount) as Revenue from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '1-AUG-"+yearSelected+"' and '31-DEC-"+yearSelected+"' group by location");
+                    dataBasedOnSelection = stmt.executeQuery ("select r.location, COUNT(distinct g.guestid) AS Foreign_Guests from reservation r, guest g where r.guestid = g.guestid and country NOT IN ('USA','United States') and r.enddate between '01-JAN-"+yearSelected+"' and '31-DEC-"+yearSelected+"' group by location");
                     
                 %>
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Location');
-                data.addColumn('number', 'Revenue');
+                data.addColumn('number', 'Occupancy : Foreign Guests');
                 
                 <%  while(dataBasedOnSelection.next()){ %>
                     data.addRow(["<%= dataBasedOnSelection.getString(1)%>",<%= dataBasedOnSelection.getString(2)%>]);
