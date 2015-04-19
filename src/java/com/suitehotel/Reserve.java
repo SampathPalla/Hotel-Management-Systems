@@ -41,16 +41,24 @@ public class Reserve extends HttpServlet {
            while(r.next()){
                 id = r.getInt(1) + 1;
            }
+           
+           HttpSession hs1=request.getSession();
+           hs1.setAttribute("reservationid", id);
+           
            int roomnum = Integer.parseInt(request.getParameter("roomnum"));
          String roomtype = request.getParameter("roomtype");
          String location = request.getParameter("location");
          DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
          Date fromDate = format.parse(request.getParameter("fromDate"));
          Date toDate = format.parse(request.getParameter("toDate"));
-         int guestid = Integer.parseInt(request.getParameter("guestid"));
-         
-         
-
+         int guestid =200;
+       /* PreparedStatement p2 = cn.prepareStatement("select max(guestid) from guest");
+            ResultSet r2 = p2.executeQuery();
+           int guestid = 200; 
+           while(r2.next()){
+                guestid = r.getInt(1) + 1;
+           }
+         */  
          PreparedStatement ps=cn.prepareStatement("insert into reservation values(?,?,?,?,?,?,?)");
          ps.setInt(1,id);
          ps.setInt(2,roomnum);
@@ -64,8 +72,9 @@ public class Reserve extends HttpServlet {
          int z=ps.executeUpdate();
                if(z>0)
          {
-               out.println("Reservation Completed Successfully. Thank You!");               
-               out.println("<br><br><a href='welcome.jsp'>Click here to go to your Home Page</a>");
+             //  out.println("Reservation Completed Successfully. Thank You!");               
+             //  out.println("<br><br><a href='reservationsuccesful.jsp'>Click here to go to your Home Page</a>");
+                   response.sendRedirect("reservationsuccess.jsp");
         }else{
            //  response.sendRedirect("contact.jsp");
                out.println("Sorry Something Went Wrong. Please Try Again Later.");
