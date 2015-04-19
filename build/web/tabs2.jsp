@@ -14,12 +14,16 @@
 			<li class="active">
 			<a href="#tab-welcome" data-toggle="tab">Welcome Visitors!</a>
 			</li>
+                         <li>
+                         <a href="#tab-profile" data-toggle="tab" >Profile</a>
+			</li>
 			<li>
 			<a href="#tab-reservation" data-toggle="tab">Reservation</a>
 			</li>
 			<li>
 			<a href="#tab-feedback" data-toggle="tab" >Customer Feedback</a>
 			</li>
+                         
 			</ul>
 			<div id="content" class="tab-content">
 				
