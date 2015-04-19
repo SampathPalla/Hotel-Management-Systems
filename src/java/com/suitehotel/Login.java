@@ -28,17 +28,7 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Login</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            */
-            
+                  
            String name=request.getParameter("email");
          String pass=request.getParameter("pswd");
 HttpSession hs1=request.getSession();
@@ -54,7 +44,18 @@ hs1.setAttribute("sname", name);
         ResultSet rs=ps.executeQuery();
         if(rs.next()){
             hs1.setAttribute("name",rs.getString("LoginID"));
-             response.sendRedirect("welcome.jsp");
+            PreparedStatement p =cn.prepareStatement("select usertype from Login where LoginID=? and Password=?");
+                p.setString(1, name);
+                p.setString(2, pass);
+            ResultSet r = p.executeQuery();
+            String type = "";
+            while(r.next()){
+                type = r.getString(1);
+            }
+           if(!type.equals("E"))
+            response.sendRedirect("welcomeguest.jsp");
+           else
+               response.sendRedirect("welcomeemployee.jsp");
             }
         
             
