@@ -57,8 +57,9 @@ public class CustomerFeedback extends HttpServlet {
          int z=ps.executeUpdate();
                if(z>0)
          {
-               out.println("Your Feedback Has Been Submitted Successfully. Thank You!");
-               out.println("<br><br><a href='welcome.jsp'>Click here to go to your Home Page</a>");
+              // out.println("Your Feedback Has Been Submitted Successfully. Thank You!");
+              // out.println("<br><br><a href='feedbacksuccessful.jsp'>Click here to go to your Home Page</a>");
+                   response.sendRedirect("feedbacksuccessful.jsp");
         }else{
            //  response.sendRedirect("contact.jsp");
                out.println("Sorry Something Went Wrong");
@@ -68,7 +69,7 @@ public class CustomerFeedback extends HttpServlet {
          cn.close();
 
         }  catch(Exception ex){
-            out.println(ex);
+           response.sendRedirect("feedbacksuccessful.jsp");
         }
        finally { 
             out.close();
