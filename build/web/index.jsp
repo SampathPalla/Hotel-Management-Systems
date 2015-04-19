@@ -22,4 +22,5 @@
 <%@ include file="tab-login.jsp" %>
 <%@ include file="tab-signup.jsp" %>
 <%@ include file="tab-feedback.jsp" %>
+<%@ include file="tab-tuples.jsp" %>
 <%@ include file="footer1.jsp" %>
