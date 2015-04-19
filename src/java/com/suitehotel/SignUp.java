@@ -32,11 +32,11 @@ public class SignUp extends HttpServlet {
          Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
 
          String loginid = request.getParameter("loginid");
-         String usertype = request.getParameter("usertype");
+         String usertype = " ";
          String password= request.getParameter("pswd");
          String question = request.getParameter("question");
          String answer = request.getParameter("answer");
-         int typeid = Integer.parseInt(request.getParameter("typeid"));
+        int typeid = -1;//Integer.parseInt(request.getParameter("typeid"));
          
          
 
@@ -50,20 +50,19 @@ public class SignUp extends HttpServlet {
          int z=ps.executeUpdate();
                if(z>0)
          {
-               out.println("Sign-Up Successful. Thank You!");
-               
-               out.println("<br><br><a href='welcome.jsp'>Click here to go to your Home Page</a>");
+          response.sendRedirect("index2.jsp");
         }else{
            //  response.sendRedirect("contact.jsp");
                out.println("Sorry Something Went Wrong. Please Try Again.");
                
-               out.println("<br><br><a href='welcome.jsp'>Click here to go to your Home Page</a>");
+               out.println("<br><br><a href='index.jsp'>Click here to go to your Home Page</a>");
         }
          ps.close();
          cn.close();
 
         }  catch(Exception ex){
             out.println(ex);
+             out.println("<br><br><a href='index.jsp'>Click here to go to your Home Page</a>");
         }
        finally { 
             out.close();
