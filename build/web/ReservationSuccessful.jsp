@@ -1,7 +1,7 @@
 <%-- 
     Document   : ReservationSuccessful
     Created on : 31 Mar, 2015, 8:46:29 PM
-    Author     : VAIO
+    Author     : Abhishek Dey
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
