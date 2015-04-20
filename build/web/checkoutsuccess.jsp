@@ -1,7 +1,7 @@
 <%-- 
     Document   : checkoutsuccess
     Created on : 18 Apr, 2015, 12:28:21 AM
-    Author     : VAIO
+    Author     : Abhishek Dey
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
