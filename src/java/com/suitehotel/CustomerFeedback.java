@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author VAIO
+ * @author Abhishek Dey
  */
 public class CustomerFeedback extends HttpServlet {
    
