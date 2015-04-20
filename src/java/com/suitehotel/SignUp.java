@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author VAIO
+ * @author Abhishek Dey
  */
 public class SignUp extends HttpServlet {
    
