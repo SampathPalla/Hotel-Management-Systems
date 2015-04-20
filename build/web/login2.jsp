@@ -1,7 +1,7 @@
 <%-- 
     Document   : login2
     Created on : 17 Apr, 2015, 6:02:01 PM
-    Author     : VAIO
+    Author     : Abhishek Dey
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
