@@ -1,7 +1,7 @@
 <%-- 
     Document   : tab-checkout
     Created on : 18 Apr, 2015, 12:00:04 AM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 				<div class="tab-pane" id="tab-checkout">

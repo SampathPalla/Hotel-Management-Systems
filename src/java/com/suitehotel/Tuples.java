@@ -14,7 +14,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author Abhishek Dey
+ * @author VAIO
  */
 public class Tuples extends HttpServlet {
    
@@ -63,9 +63,6 @@ public class Tuples extends HttpServlet {
            r = p.executeQuery();
            while(r.next()){   count += r.getInt(1);     }
            
-            p = cn.prepareStatement("select count(*) from feedback");
-           r = p.executeQuery();
-           while(r.next()){   count += r.getInt(1);     }
            
              p = cn.prepareStatement("select count(*) from employee");
            r = p.executeQuery();

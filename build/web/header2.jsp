@@ -1,7 +1,7 @@
 <%-- 
     Document   : header1
     Created on : 29 Mar, 2015, 2:28:00 AM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -31,8 +31,6 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="ownerHome.jsp">Admin</a></li>
-             <li><a href="index.jsp">Home</a></li>
        <li><a href="index.jsp">Logout</a></li>  
           </ul>
         </li>

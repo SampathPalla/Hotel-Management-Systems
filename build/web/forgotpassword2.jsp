@@ -1,7 +1,7 @@
 <%-- 
     Document   : forgotpassword
     Created on : 17 Apr, 2015, 5:02:50 PM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

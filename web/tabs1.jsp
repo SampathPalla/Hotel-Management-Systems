@@ -26,6 +26,9 @@
 			<li>
 			<a href="#tab-feedback" data-toggle="tab" >Customer Feedback</a>
 			</li>
+                         <li>
+			<a href="#tab-tuples" data-toggle="tab" >Tuples</a>
+			</li>
 			</ul>
 			<div id="content" class="tab-content">
 				

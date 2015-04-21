@@ -24,10 +24,9 @@
   						 </div>
 
  					<div class="text-center">
- 				<!--	 <button type="submit" class="btn btn-primary">Submit</button> -->
                                              <input type="submit" value="Login" name="sub1">
- 					 <button type="button" class="btn btn-link">Forgot password?</button>
- 					 <button type="button" class="btn btn-link">Don't Have an Account? Sign-up for Free</button>
+ 					 <a href="forgotpassword.jsp">Forgot Password ?</a>
+ 					 <a href="signup.jsp">Don't Have an Account? Click Here To Sign-up</a>
  					 </div>
 					</form>
 						</div>

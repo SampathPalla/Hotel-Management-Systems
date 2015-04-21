@@ -1,7 +1,7 @@
 <%-- 
     Document   : slider
     Created on : 29 Mar, 2015, 2:14:29 AM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

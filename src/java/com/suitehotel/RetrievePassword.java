@@ -14,7 +14,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author Abhishek Dey
+ * @author VAIO
  */
 public class RetrievePassword extends HttpServlet {
    

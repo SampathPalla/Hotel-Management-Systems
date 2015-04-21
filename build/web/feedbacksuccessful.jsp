@@ -1,7 +1,7 @@
 <%-- 
     Document   : feedbacksuccessful
     Created on : 31 Mar, 2015, 8:51:14 PM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 
@@ -30,7 +30,7 @@
   						
  						 <div class="col-xs-4">
  						 <div class="form-group">
-   						 <label for="occID">Occupancy ID</label>
+   						 <label for="occID">Reservation ID</label>
 
  						   <input type="text" class="form-control" id="occID" name="occID"
                                                     placeholder="Enter your Occupancy ID">

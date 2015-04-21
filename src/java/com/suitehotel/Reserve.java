@@ -16,7 +16,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 /**
  *
- * @author Abhishek Dey
+ * @author VAIO
  */
 public class Reserve extends HttpServlet {
    
@@ -35,6 +35,47 @@ public class Reserve extends HttpServlet {
                      Class.forName("oracle.jdbc.driver.OracleDriver");
          Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
 
+           
+           
+         PreparedStatement p2 = cn.prepareStatement("select max(guestid) from guest");
+            ResultSet r2 = p2.executeQuery();
+           int guestid2 = 200; 
+           while(r2.next()){
+                guestid2 = r2.getInt(1) + 1;
+           }
+           
+          
+             //  out.println("Reservation Completed Successfully. Thank You!");               
+             //  out.println("<br><br><a href='reservationsuccesful.jsp'>Click here to go to your Home Page</a>");
+               //     ps.setInt(7,guestid);
+         String  name = request.getParameter("name");
+         int phone = Integer.parseInt(request.getParameter("phone"));
+         String email = request.getParameter("email");
+         String address = request.getParameter("address");
+         String city = " ";
+         String state = " ";
+         String country = " ";
+         int zip = 31235;
+         String payment = " ";
+         String type = "";
+         int loyalty = 1;
+            
+         PreparedStatement ps2=cn.prepareStatement("insert into guest values(?,?,?,?,?,?,?,?,?,?,?,?)");
+         ps2.setInt(1, guestid2);
+         ps2.setString(2, name);
+         ps2.setInt(3, phone);
+         ps2.setString(4, email);
+         ps2.setString(5, address);
+         ps2.setString(6, city);
+         ps2.setString(7, state);
+         ps2.setString(8, country);
+         ps2.setInt(9, zip);
+         ps2.setString(10, payment);
+         ps2.setString(11, type);
+         ps2.setInt(12, loyalty);
+         int a = ps2.executeUpdate();
+         if(a > 0){
+             
             PreparedStatement p = cn.prepareStatement("select max(reservationid) from reservation");
             ResultSet r = p.executeQuery();
            int id = 200; 
@@ -44,7 +85,7 @@ public class Reserve extends HttpServlet {
            
            HttpSession hs1=request.getSession();
            hs1.setAttribute("reservationid", id);
-           
+          
            int roomnum = Integer.parseInt(request.getParameter("roomnum"));
          String roomtype = request.getParameter("roomtype");
          String location = request.getParameter("location");
@@ -68,19 +109,30 @@ public class Reserve extends HttpServlet {
          ps.setDate(4, new java.sql.Date(toDate.getTime()));
          ps.setString(5,roomtype);
          ps.setString(6,location);
-         ps.setInt(7,guestid);
+         ps.setInt(7,guestid2);
+         
+         
+           
+         
          int z=ps.executeUpdate();
                if(z>0)
          {
-             //  out.println("Reservation Completed Successfully. Thank You!");               
-             //  out.println("<br><br><a href='reservationsuccesful.jsp'>Click here to go to your Home Page</a>");
-                   response.sendRedirect("reservationsuccess.jsp");
+          
+                   response.sendRedirect("reservationsuccess.jsp");   
+             
+         }
+         else{
+             out.println("Sorry Something Went Wrong. Please Try Again Later.");
+               out.println("<br><br><a href='welcome.jsp'>Click here to go to your Home Page</a>");
+         }
+         
+             
         }else{
            //  response.sendRedirect("contact.jsp");
                out.println("Sorry Something Went Wrong. Please Try Again Later.");
                out.println("<br><br><a href='welcome.jsp'>Click here to go to your Home Page</a>");
         }
-         ps.close();
+         ps2.close();
          cn.close();
 
         }  catch(Exception ex){

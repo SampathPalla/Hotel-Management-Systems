@@ -4,6 +4,10 @@
     Author     : VAIO
 --%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,8 +42,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="welcome.jsp">Home</a></li>
-                            <li><a href="#">Admin</a></li>
+                            <li><a href="WelcomeAdmin.jsp">Home</a></li>
                         </ul>
                      </div>
                 </div>
@@ -62,7 +65,7 @@
                     </li>
                     <li>
                         <a href="#tab-LoyaltyProgram" data-toggle="tab"><span class="glyphicon glyphicon-th-large"></span>
-                            <span class="tab-text">Loyalty Program</span>
+                            <span class="tab-text">Change Privileges</span>
                         </a>
                     </li>
                     <li>
@@ -120,7 +123,16 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-LoyaltyProgram">
-                        <h6>Loyalty Program</h6>
+                        <h6>Change Privileges</h6>
+                        &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("GrantEmpPriv.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefGrantEmpPriv'>> Grant Employee Privileges</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("GrantAdminPrivs.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefGrantAdminPriv'>> Grant Administrator Privileges</a>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href='#' onclick='javascript:window.open("RevokePrivs.jsp", "_blank", "scrollbars=1,resizable=0,height="+(screen.height/2)+",width="+(screen.width/2)+" ,left = "+(screen.width/4)+",top =" + (screen.height/4)+"");' title='hrefRevokePrivs'>> Revoke All Privileges</a>
+                                <br>
                     </div>
                     <div class="tab-pane" id="tab-FeedbackAnalysis">
                         <h6>Feedback Analysis</h6>

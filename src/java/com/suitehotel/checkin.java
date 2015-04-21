@@ -18,7 +18,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author Abhishek Dey
+ * @author VAIO
  */
 public class checkin extends HttpServlet {
    

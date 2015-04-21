@@ -14,7 +14,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author Abhishek Dey
+ * @author VAIO
  */
 public class Login extends HttpServlet {
    
@@ -52,11 +52,16 @@ hs1.setAttribute("sname", name);
             while(r.next()){
                 type = r.getString(1);
             }
-           if(!type.equals("E"))
-            response.sendRedirect("welcomeguest.jsp");
+           if(type.equals("E"))
+            response.sendRedirect("welcomeemployee.jsp");
+           else if(type.equals("G"))
+               response.sendRedirect("welcomeguest.jsp");
            else
-               response.sendRedirect("welcomeemployee.jsp");
+            {
+                response.sendRedirect("WelcomeAdmin.jsp");
             }
+            }
+        
         
             
          /*

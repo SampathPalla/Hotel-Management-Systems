@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 15 Mar, 2015, 9:54:49 PM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -50,7 +50,6 @@
 
 <%@ include file="tab-welcome.jsp" %>
 						</div>
-<%@ include file="tab-profile.jsp" %>
 <%@ include file="tab-reservation.jsp" %>
 <%@ include file="tab-feedback.jsp" %>
 <%@ include file="footer1.jsp" %>

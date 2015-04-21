@@ -1,7 +1,7 @@
 <%-- 
     Document   : index2
     Created on : 17 Apr, 2015, 6:22:14 PM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

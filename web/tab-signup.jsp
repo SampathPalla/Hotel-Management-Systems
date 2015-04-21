@@ -21,10 +21,11 @@
    						 <label for="pswd">Password</label>
    						 <input type="password" class="form-control" name="pswd" id="pswd" placeholder="Password">
   						 </div>
-  						 <div class="form-group">
+  						<!-- <div class="form-group">
    						 <label for="usertype">User Type</label>
    						 <input type="text" class="form-control" id="usertype" name="usertype" placeholder="User Type">
   						 </div>
+                                                  -->
   						 <div class="form-group">
    						 <label for="question">Security Question</label>
    						 <input type="text" class="form-control" id="question" name="question" placeholder="Please Enter A Security Question">
@@ -33,10 +34,12 @@
    						 <label for="answer">Security Answer</label>
    						 <input type="text" class="form-control" id="answer"name="answer" placeholder="Please Enter Your Security Answer">
   						 </div>
-  						 <div class="form-group">
+  						 <!--
+                                                  <div class="form-group">
    						 <label for="typeid">Type</label>
    						 <input type="text" class="form-control" id="typeid" name="typeid" placeholder="TypeID">
   						 </div>
+                                                  -->
  					<div class="text-center">
  					 <button type="submit" class="btn btn-primary">Submit</button>
  					 </div>

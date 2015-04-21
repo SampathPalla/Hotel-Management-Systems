@@ -1,7 +1,7 @@
 <%-- 
     Document   : welcomeemployee
     Created on : 18 Apr, 2015, 12:34:32 AM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 
@@ -16,12 +16,6 @@
 			
 			<ul class="nav nav-tabs nav-justified">
 			<li class="active">
-			<a href="#tab-welcome" data-toggle="tab">Welcome Visitors!</a>
-			</li>
-                         <li>
-                         <a href="#tab-profile" data-toggle="tab" >Profile</a>
-			</li>
-			<li>
 			<a href="#tab-checkin" data-toggle="tab">Frontdesk</a>
 			</li>
 			<li>
@@ -32,12 +26,10 @@
 				
 
 
-					<div class="tab-pane active" id="tab-welcome">
+					<div class="tab-pane active" id="tab-checkin">
 
-<%@ include file="tab-welcome.jsp" %>
-						</div>
-<%@ include file="tab-profile.jsp" %>
 <%@ include file="tab-checkin.jsp" %>
+						</div>
 <%@ include file="tab-checkout.jsp" %>
 
 <%@ include file="footer1.jsp" %>

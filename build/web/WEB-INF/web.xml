@@ -28,6 +28,38 @@
         <servlet-name>SignUp</servlet-name>
         <servlet-class>com.suitehotel.SignUp</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessForgotPassword</servlet-name>
+        <servlet-class>ProcessForgotPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RetrievePassword</servlet-name>
+        <servlet-class>com.suitehotel.RetrievePassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RetrievePassword2</servlet-name>
+        <servlet-class>com.suitehotel.RetrievePassword2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>Profile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateProfile</servlet-name>
+        <servlet-class>com.suitehotel.CreateProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkin</servlet-name>
+        <servlet-class>com.suitehotel.checkin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Checkout</servlet-name>
+        <servlet-class>com.suitehotel.Checkout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Tuples</servlet-name>
+        <servlet-class>com.suitehotel.Tuples</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -56,6 +88,38 @@
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessForgotPassword</servlet-name>
+        <url-pattern>/ProcessForgotPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RetrievePassword</servlet-name>
+        <url-pattern>/RetrievePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RetrievePassword2</servlet-name>
+        <url-pattern>/RetrievePassword2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateProfile</servlet-name>
+        <url-pattern>/CreateProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkin</servlet-name>
+        <url-pattern>/checkin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Checkout</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Tuples</servlet-name>
+        <url-pattern>/Tuples</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -64,4 +128,11 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
         </welcome-file-list>
+    <resource-ref>
+<description>MySQL Datasource example</description>
+<res-ref-name>jdbc/NewOrclResource</res-ref-name>
+<res-type>javax.sql.DataSource</res-type>
+<res-auth>Container</res-auth>
+<res-sharing-scope>Shareable</res-sharing-scope>
+</resource-ref>
     </web-app>

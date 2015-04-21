@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author Abhishek Dey
+ * @author VAIO
  */
 public class SignUp extends HttpServlet {
    
@@ -32,7 +32,7 @@ public class SignUp extends HttpServlet {
          Connection cn=DriverManager.getConnection("jdbc:oracle:thin:@oracle1.cise.ufl.edu:1521:orcl","spratap","oracle2015");
 
          String loginid = request.getParameter("loginid");
-         String usertype = " ";
+         String usertype = "G";
          String password= request.getParameter("pswd");
          String question = request.getParameter("question");
          String answer = request.getParameter("answer");

@@ -1,7 +1,7 @@
 <%-- 
     Document   : tabs1
     Created on : 29 Mar, 2015, 2:25:50 AM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,9 +13,6 @@
 			<ul class="nav nav-tabs nav-justified">
 			<li class="active">
 			<a href="#tab-welcome" data-toggle="tab">Welcome Visitors!</a>
-			</li>
-                         <li>
-                         <a href="#tab-profile" data-toggle="tab" >Profile</a>
 			</li>
 			<li>
 			<a href="#tab-reservation" data-toggle="tab">Reservation</a>

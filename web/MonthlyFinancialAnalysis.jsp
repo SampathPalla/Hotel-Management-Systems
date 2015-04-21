@@ -59,6 +59,7 @@
                     }
                     dataBasedOnSelection = stmt.executeQuery ("select r.location, sum(c.amount) from reservation r, roomoccupancy ro, charges c where r.reservationid = ro.reservationid and ro.occupancyid = c.occupancyid and c.settled='Y' and r.enddate between '1-JAN-"+ yearSelected +"' and '31-DEC-"+ yearSelected +"'and Extract(MONTH from r.enddate)= " + monthSelected + "Group By Location");
                 %>
+                        alert("<%=monthSelected%>");
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Location');
                 data.addColumn('number', 'Revenue');

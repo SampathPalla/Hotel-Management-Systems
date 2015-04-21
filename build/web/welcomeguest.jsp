@@ -1,7 +1,7 @@
 <%-- 
     Document   : welcomeguest
     Created on : 17 Apr, 2015, 11:32:38 PM
-    Author     : Abhishek Dey
+    Author     : VAIO
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -50,7 +50,6 @@
 
 <%@ include file="tab-welcome.jsp" %>
 						</div>
-<%@ include file="tab-profile.jsp" %>
 <%@ include file="tab-reservation.jsp" %>
 <%@ include file="tab-feedback.jsp" %>
 <%@ include file="footer1.jsp" %>
